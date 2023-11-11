@@ -57,6 +57,8 @@ public class ProductController {
 
     @PutMapping("/products/{product_id}")
     ResponseEntity<?> updateProduct(@PathVariable(value = "product_id") String productId, @RequestBody UpdateProductRequest updateProductRequest) {
+
+                         updateProductRequest.setProductId(productId);
         ProductResponse productResponse = productService.updateProduct(updateProductRequest);
 
         if (productResponse != null)

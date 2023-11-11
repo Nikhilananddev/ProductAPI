@@ -40,10 +40,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponse addProduct(AddProductRequest addProductRequest) {
 
-        System.out.println("Hello service" + addProductRequest.toString());
-
-
-        System.out.println("service" + addProductRequest);
 
         Product product = productRepositoryService.addProduct(addProductRequest.getName(),
                 addProductRequest.getDescription(),
@@ -58,7 +54,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponse updateProduct(UpdateProductRequest updateProductRequest) {
 
-        System.out.println("service" + updateProductRequest.toString());
         Product product = null;
         product = productRepositoryService.updateProduct(updateProductRequest.getProductId(), updateProductRequest.getName(),
                 updateProductRequest.getDescription(), updateProductRequest.getPrice(), updateProductRequest.getAvailability());
@@ -72,6 +67,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductResponse removeProduct(String productId) {
+
         Product product = null;
         product = productRepositoryService.deleteProduct(productId);
         if (product != null)
